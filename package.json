@@ -1,0 +1,37 @@
+{
+  "name": "testing-smartContracts",
+  "version": "0.1.0",
+  "license": "MIT",
+  "private": true,
+  "files": [
+    "contracts",
+    "build"
+  ],
+  "engines": {
+    "node": ">=10"
+  },
+  "scripts": {
+    "lint": "yarn prettier ./test/*.ts --check",
+    "lint:fix": "yarn prettier ./test/*.ts --write",
+    "clean": "rimraf ./build/",
+    "precompile": "yarn clean",
+    "compile": "waffle .waffle.json",
+    "pretest": "yarn compile",
+    "test": "mocha",
+    "prepublishOnly": "yarn test"
+  },
+  "devDependencies": {
+    "@openzeppelin/contracts": "^3.0.1",
+    "@types/chai": "^4.2.11",
+    "@types/mocha": "^7.0.2",
+    "chai": "^4.2.0",
+    "ethereum-waffle": "^2.5.1",
+    "ethereumjs-util": "^7.0.2",
+    "mocha": "^7.2.0",
+    "prettier": "^2.0.5",
+    "rimraf": "^3.0.2",
+    "solc": "^0.6.8",
+    "ts-node": "^8.10.1",
+    "typescript": "^3.9.3"
+  }
+}
