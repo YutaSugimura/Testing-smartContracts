@@ -13,15 +13,14 @@ describe('Secp256k1', () => {
     contract = await deployContract(wallet, Secp256k1);
   });
 
-  it('On the line.', async() => {
+  it('On the line.', async () => {
     const point = await contract.derivePubKey(wallet.privateKey);
 
-    const p = (2 ** 256) - (2** 32) - (2** 9) - (2 ** 8) - (2** 7) - (2**6) - (2**4) - 1;
+    const p = 2 ** 256 - 2 ** 32 - 2 ** 9 - 2 ** 8 - 2 ** 7 - 2 ** 6 - 2 ** 4 - 1;
     expect((point[0] ** 3 + 7 - point[1] ** 2) % p).to.equal(0);
   });
 
-
-  it('PublicKey', async() => {
+  it('PublicKey', async () => {
     const point = await contract.derivePubKey(wallet.privateKey);
 
     const _x = BigNumber.from(point[0])._hex;
@@ -30,7 +29,7 @@ describe('Secp256k1', () => {
     const y = _y.slice(2);
 
     expect('0x' + '04' + String(x) + String(y)).to.equal(wallet.publicKey);
-  })
+  });
 
   it('Ethereum address', async () => {
     const point = await contract.derivePubKey(wallet.privateKey);
