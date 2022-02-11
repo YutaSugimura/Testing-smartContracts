@@ -21,7 +21,7 @@
     "prepublishOnly": "yarn test"
   },
   "devDependencies": {
-    "@openzeppelin/contracts": "^3.0.2",
+    "@openzeppelin/contracts": "^4.4.2",
     "@types/chai": "^4.2.11",
     "@types/mocha": "^7.0.2",
     "@typescript-eslint/eslint-plugin": "^3.4.0",
